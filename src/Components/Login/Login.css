@@ -1,0 +1,138 @@
+.container {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: right;
+    height: 100vh;
+    background-color: #ffffff ; /* Background color for the entire page */
+  }
+  
+  .header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 30px;
+    justify-content: flex-end;
+  }
+
+  .text{
+    color: black;
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+  .underline{
+    width: 61px;
+    height: 6px;
+    background: black;
+    border-radius: 9px; 
+  }
+
+  .inputs{
+    align-items: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .input{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 480px;
+    height: 80px;
+    background:#eaeaea;
+    border-radius: 6px;
+  }
+
+  .input img{
+    margin:0px 30px;
+  }
+
+  .input input{
+    height: 50px;
+    width: 400px;
+    background: transparent;
+    border:none;
+    outline: none;
+    color:#797979;
+    font-size: 19px;
+  }
+
+  .forgot-password{
+    display: flex;
+    padding-left: 5px;
+    margin-top: 27px;
+    color:#797979;
+    font-size: 18px;
+    justify-content: center;
+    
+  }
+
+  .forgot-password span{
+    display: flex;
+    color:black;
+    cursor:pointer;
+    justify-content: center;
+  }
+
+  .submit-container{
+    display: flex;
+    gap:30px;
+    margin:60px auto;
+    justify-content: center;
+
+  }
+
+  .submit{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:250px;
+    height:59px;
+    color:#fff;
+    background: rgb(243, 27, 171);
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+    /* padding-left:  */
+  }
+  
+  .inn4-logo {
+    max-width: 200px; /* Adjust the size as needed */
+  }
+
+  .welcome-logo{
+    max-width: 200px;
+  }
+
+  .left-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image-container {
+    text-align: center;
+  }
+  
+  .image-container img {
+    max-width: 100px; /* Adjust the size as needed */
+  }
+  
+  .right-section {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff; /* Background color for the login box */
+    border-radius: 5px; /* Add some rounded corners */
+  }
+  
+  /* Additional styling for the right section can be added here */
+  
+  /* Style the input elements, buttons, and other components as needed */
+  
