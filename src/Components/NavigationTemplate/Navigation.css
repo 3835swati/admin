@@ -3,7 +3,24 @@
   top: 0;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  color: rgb(248, 242, 242);
+  background: linear-gradient(10deg, #810551, #05454d);
+  padding: 5px 10px;
+  overflow: hidden;
+}
+.full{
   width: 20%;
+}
+.half{
+  width: 80px;
+}
+.navigation2 {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  width: 5%;
   min-height: 100vh;
   color: rgb(248, 242, 242);
   background: linear-gradient(10deg, #810551, #05454d);
@@ -14,11 +31,24 @@
   width: max-content;
 }
 
-.navigation .menu {
+.navigation .uncollapsedDiv .menu {
   position: absolute;
   right: 10px;
   top: 0;
   margin-left: auto;
+  font-size: 18px;
+  height: 35px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  cursor: pointer;
+}
+.navigation .collapsedDiv .menu {
+  justify-content: center;
+  top: 0;
+  margin-left: 14px;
   font-size: 18px;
   height: 35px;
   aspect-ratio: 1;
@@ -37,7 +67,7 @@
   rotate: 180deg;
 }
 
-.navigation header {
+.navigation .uncollapsedDiv header {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -49,7 +79,18 @@
   border-radius: 14px;
   margin-bottom: 10px;
 }
-.navigation header::after {
+.navigation .collapsedDiv header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 25px 0 15px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+}
+.navigation .uncollapsedDiv header::after {
   position: absolute;
   content: "";
   height: 1px;
@@ -57,8 +98,15 @@
   background-color: rgba(255, 255, 255, 0.356);
   bottom: 0;
 }
+.navigation .collapsedDiv header::after {
+  position: absolute;
+  content: "";
+  width: 80%;
+  background-color: rgba(255, 255, 255, 0.356);
+  bottom: 0;
+}
 
-.navigation.dark header {
+.navigation.dark .uncollapsedDiv header {
   background-color: rgba(0, 0, 0, 0.438);
 }
 
@@ -72,8 +120,13 @@
   display: none;
 }
 
-.navigation header .profile {
+.navigation .uncollapsedDiv header .profile {
   height: 110px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: rgb(223, 212, 212);
+}
+.navigation .collapsedDiv header .profile {
   aspect-ratio: 1;
   border-radius: 50%;
   background-color: rgb(223, 212, 212);
@@ -88,6 +141,11 @@
 
 .navigation.active header .profile {
   height: 100px;
+}
+
+.profile-img2{
+  height: 50px;
+  width: 50px;
 }
 
 .navigation header span {

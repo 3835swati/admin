@@ -3,7 +3,7 @@ import "./Navigation.css";
 import React from 'react';
 import { Link, Route, Routes } from "react-router-dom";
 
-import { FiChevronLeft, FiMessageSquare } from "react-icons/fi";
+import { FiChevronLeft, FiChevronRight, FiMessageSquare } from "react-icons/fi";
 import { TbDashboard } from "react-icons/tb";
 import { CiUser } from "react-icons/ci";
 
@@ -22,13 +22,14 @@ import Tickets from "../Tickets/Tickets";
 
 
 const Navigation = () => {
+  const [showFullNavBar, setShowFullNavBar] = useState(true)
   const [nav, setnav] = useState(false);
-  const [showUserSubroutes, setShowUserSubroutes] = useState(true);
+  const [showUserSubroutes, setShowUserSubroutes] = useState(false);
   const [showTicketSubroutes, setShowTicketSubroutes] = useState(true);
 
   const subroutesForUsers = [
     { text: "Super Admin", link: "/super_admin" },
-    { text: "Admin", link: "/admin" },
+    { text: "Admin", link: "admin" },
     { text: "Staff",  link: "/staff" },
     { text: "Helpdesk", link: "/helpdesk" },
   ];
@@ -42,17 +43,21 @@ const Navigation = () => {
   function changeTheme() {
     setDarkTheme(!DarkTheme);
   }
-
+  
   return (
-    <div className={`navigation ${DarkTheme && "dark"}`}>
-      <div
+  
+    <div className={`navigation ${DarkTheme && "dark"} ${showFullNavBar?"full":"half"}`} >
+      {showFullNavBar
+      ?
+      <div className="uncollapsedDiv">
+        <div
         className={`menu`}
         onClick={() => {
           setShowUserSubroutes(false);
           setShowTicketSubroutes(false);
         }}
       >
-        <FiChevronLeft className="menu-icon" />
+        <FiChevronLeft className="menu-icon" onClick={() => setShowFullNavBar(false)}/>
       </div>
       <header>
         <div className="profile"> 
@@ -68,16 +73,15 @@ const Navigation = () => {
 
       {/* <div className="divider"></div> */}
       
-      <Link to='./users'>
+      
       <Nav className = " nav-users"
         Icon={CiUser}
         title="Users"
-        link="/users"
         onClick={() => setShowUserSubroutes(!showUserSubroutes)}
         isSubroutesVisible={showUserSubroutes}
         subroutes={subroutesForUsers}
       />
-      </Link>
+      
 
       {/* <div className="divider"></div> */}
       <Link to='./tickets'>
@@ -131,6 +135,34 @@ const Navigation = () => {
         />
         <path d="M0 0v5.63C149.93 59 314.09 71.32 475.83 42.57c43-7.64 84.23-20.12 127.61-26.46 59-8.63 112.48 12.24 165.56 35.4C827.93 77.22 886 95.24 951.2 90c86.53-7 172.46-45.71 248.8-84.81V0z" />
       </svg>
+      </div>:
+      <div className="collapseDiv">
+        
+        <div
+        className={`menu`}
+        onClick={() => {
+          setShowUserSubroutes(false);
+          setShowTicketSubroutes(false);
+        }}
+        style={{display: "flex", flexDirection: "column", alignItems: "center"}}
+      >
+        
+        <FiChevronRight style={{}} onClick={() => setShowFullNavBar(true)}/>
+        
+      </div>
+      <header>
+        <div className="profile"> 
+        <Link to="/">
+          <img src={Logo} alt="" className="profile-img2" />
+        </Link>
+        </div>
+      </header>
+      
+        
+      
+      </div>
+      }
+      
     </div>
   );
 };
